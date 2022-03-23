@@ -41,7 +41,9 @@ from Crypto.Signature import PKCS1_v1_5
 import base64
 import os
 
-class WalmartNetworking():
+from recipes.networkingLayer.baseRetailerNetworking import BaseRetailerNetworking
+
+class WalmartNetworking(BaseRetailerNetworking):
 
 
     def __init__(self) -> None:

@@ -1,6 +1,7 @@
 from enum import Enum
 from pprint import pprint
 from recipes.networkingLayer import amazonNetworking
+from recipes.networkingLayer.baseRetailerNetworking import BaseRetailerNetworking
 
 from recipes.networkingLayer.walmartNetworking import WalmartNetworking
 from datetime import date
@@ -11,7 +12,10 @@ from recipes.nondbmodels.amazonModels import ProfitabilityData
 class DataCollectionService():
     def __init__(self, params) -> None:
         self.upc = params.get('upc')
-        self.retailer = Retailer[params.get('retailer')].value 
+
+        self.retailer = Retailer[params.get('retailer')] 
+        self.retailer.testFunction("cool")
+
         print(type(self.retailer) is WalmartNetworking)
         self.params = params
         self.amazonProduct = amazonNetworking.getProducts(self.upc)['payload']['Items'][0]
@@ -59,8 +63,12 @@ class DataCollectionService():
             retailPrice=float(self.inStorePrice), 
             priceUsedSource=self.priceUsedSource))
 
-class Retailer(Enum):
-    walmart = WalmartNetworking()
+# class Retailer(Enum):
+#     walmart = WalmartNetworking()
+
+Retailer: dict[str, BaseRetailerNetworking] = {
+    'walmart': WalmartNetworking()
+}
 
 class UPCNotFoundException(BaseException):
     def __init__(self, upc) -> None:
