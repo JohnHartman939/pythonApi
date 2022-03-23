@@ -2,7 +2,7 @@ name: AWS Deploy
 on:
   push:
     branches:
-      - test-main-branch
+      - main
 
 jobs:
   build:
