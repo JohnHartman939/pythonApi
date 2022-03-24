@@ -2,7 +2,7 @@ name: AWS Deploy
 on:
   push:
     branches:
-      - test-main-branch
+      - main
 
 jobs:
   build:
@@ -37,6 +37,7 @@ jobs:
           version_label: 12345
           region: us-east-1
           deployment_package: deploy.zip
+          use_existing_version_if_available: true
 
       - name: Deployed!
         run: echo App deployed
