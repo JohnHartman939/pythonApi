@@ -11,6 +11,7 @@ boto3 = "*"
 django-environ = "*"
 pycryptodome = "*"
 psycopg2-binary = "*"
+"backports.zoneinfo" = "*"
 
 [dev-packages]
 
