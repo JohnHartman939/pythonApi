@@ -64,7 +64,7 @@ class DataCollectionService():
 
 
 
-Retailer: dict[str, BaseRetailerNetworking] = {
+Retailer = {
     'walmart': WalmartNetworking()
 }
 

@@ -15,23 +15,22 @@ class ProfitabilityData:
         self.profitability = self.getProfitabilityString(self.profitPercentage, self.profit, self.restrictions)
 
     def getProfitabilityString(self, profitPercentage, profit, restriction):
-        match profitPercentage:
-            case profitPercentage if restriction:
-                return "Do Not Buy, Restrictions"
-            case profitPercentage if profit<3:
-                return "Do Not Buy, Low Profit"                
-            case profitPercentage if profitPercentage<0:
-                return "Do Not Buy"
-            case profitPercentage if (profitPercentage>0) & (profitPercentage<= 35.0):
-                return "Probably Do Not Buy"
-            case profitPercentage if (profitPercentage>35) & (profitPercentage<= 65.0):
-                return "Probably Buy"
-            case profitPercentage if (profitPercentage>65) & (profitPercentage<= 100.0):
-                return "Buy"
-            case profitPercentage if (profitPercentage>100):
-                return "Buy Now"
-            case _:
-                return "Error"
+        if restriction:
+            return "Do Not Buy, Restrictions"
+        elif profit<3:
+            return "Do Not Buy, Low Profit"
+        elif profitPercentage<0:
+            return "Do Not Buy"
+        elif (profitPercentage>0) & (profitPercentage<= 35.0):
+            return "Probably Do Not Buy"
+        elif (profitPercentage>35) & (profitPercentage<= 65.0):
+            return "Probably Buy"
+        elif (profitPercentage>65) & (profitPercentage<= 100.0):
+            return "Buy"
+        elif (profitPercentage>100):
+            return "Buy Now"
+        else:
+            return "Error"
 class AmazonPriceSummary:
     def __init__(self, lowestPrice, competitivePrice) -> None:
         self.lowestPrice = lowestPrice
