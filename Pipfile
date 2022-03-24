@@ -9,8 +9,8 @@ djangorestframework = "*"
 requests = "*"
 boto3 = "*"
 django-environ = "*"
-psycopg2 = "*"
 pycryptodome = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
