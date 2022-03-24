@@ -1,4 +1,3 @@
-from enum import Enum
 from pprint import pprint
 from recipes.networkingLayer import amazonNetworking
 from recipes.networkingLayer.baseRetailerNetworking import BaseRetailerNetworking
@@ -63,8 +62,7 @@ class DataCollectionService():
             retailPrice=float(self.inStorePrice), 
             priceUsedSource=self.priceUsedSource))
 
-# class Retailer(Enum):
-#     walmart = WalmartNetworking()
+
 
 Retailer: dict[str, BaseRetailerNetworking] = {
     'walmart': WalmartNetworking()

@@ -13,8 +13,6 @@ from recipes.nondbmodels.amazonModels import ProfitabilityData
 from recipes.serializers.amazonSerializers import AmazonProductSerializer 
 from pprint import pprint
 
-from scourgify import normalize_address_record
-
 
 class AmazonList(generics.ListAPIView):
 
