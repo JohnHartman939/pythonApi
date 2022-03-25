@@ -40,7 +40,11 @@ from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
 import base64
 import os
+import environ
 
+
+env = environ.Env()
+from pprint import pprint
 from recipes.networkingLayer.baseRetailerNetworking import BaseRetailerNetworking
 
 class WalmartNetworking(BaseRetailerNetworking):
@@ -54,13 +58,7 @@ class WalmartNetworking(BaseRetailerNetworking):
     def _sign(self):
         sortedHashString = self.consumerId +'\n'+ self.epochTime +'\n'+ self.keyVersion +'\n'
         encodedHashString = sortedHashString.encode()
-        try:
-            with open('./recipesInPython/WM_IO_private_key.pem', 'r') as f:
-                key = RSA.importKey(f.read())
-                print(key)
-        except IOError as e:
-            print(e)
-
+        key = RSA.importKey(env.str('WALMART_CERT', multiline=True))
         hasher = SHA256.new(encodedHashString)
         signer = PKCS1_v1_5.new(key)
         signature = signer.sign(hasher)
