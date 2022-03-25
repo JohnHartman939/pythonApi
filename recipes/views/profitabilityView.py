@@ -72,5 +72,7 @@ class ProfiabilityView(generics.ListAPIView):
         #     amazonProductsList.append(ProfitabilityData(asin=product['Identifiers']['MarketplaceASIN']['ASIN'], title=product['AttributeSets'][0]['Title'], imageUrl=product['AttributeSets'][0]['SmallImage']['URL'], salesRank=product['SalesRankings'][0]['Rank'], prices=prices, feeTotal=fees, restrictions=restrictions, retailPrice=float(inStorePrice)))
 
         return Response(AmazonProductSerializer(dataCollector.amazonProductsList, many=True).data)
-        return Response(products)
+        
+    def get_queryset(self):
+        pass
         
