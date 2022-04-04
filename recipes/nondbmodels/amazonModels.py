@@ -1,5 +1,5 @@
 class ProfitabilityData:
-    def __init__(self, asin, title, imageUrl, salesRank, prices, feeTotal, restrictions, retailPrice, priceUsedSource):
+    def __init__(self, asin, title, imageUrl, salesRank, prices, feeTotal, restrictions, retailPrice, priceUsedSource, labeling, prep):
         self.asin = asin
         self.title = title
         self.imageUrl = imageUrl
@@ -13,6 +13,8 @@ class ProfitabilityData:
         self.priceUsedSource = priceUsedSource
         self.priceUsed = retailPrice
         self.profitability = self.getProfitabilityString(self.profitPercentage, self.profit, self.restrictions)
+        self.labeling = labeling
+        self.prep = prep
 
     def getProfitabilityString(self, profitPercentage, profit, restriction):
         if restriction:

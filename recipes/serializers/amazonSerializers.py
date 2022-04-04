@@ -16,6 +16,8 @@ class AmazonProductSerializer(serializers.Serializer):
     profitPercentage = serializers.CharField()
     priceUsedSource = serializers.CharField()
     priceUsed = serializers.CharField()
+    labeling = serializers.CharField()
+    prep = serializers.CharField()
     # lowestPrices = AmazonLowestPriceSerializer(many=True)
     # competitivePrice = AmazonCompetitivePriceSerializer()
     # lowestPrice = serializers.CharField(source='payload.Summary.LowestPrices[0].LandedPrice.Amount')

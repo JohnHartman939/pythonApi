@@ -12,6 +12,7 @@ django-environ = "*"
 pycryptodome = "*"
 psycopg2-binary = "*"
 "backports.zoneinfo" = "*"
+pydash = "*"
 
 [dev-packages]
 
